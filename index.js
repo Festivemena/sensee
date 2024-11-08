@@ -19,6 +19,7 @@ const SensorData = mongoose.model('SensorData', sensorSchema);
 
 app.use(bodyParser.json());
 
+// POST request to save sensor data
 app.post('/api/sensordata', async (req, res) => {
   try {
     const { temperature, humidity, co_level } = req.body;
@@ -30,6 +31,16 @@ app.post('/api/sensordata', async (req, res) => {
     res.status(200).json({ message: 'Data saved successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Error saving data', error });
+  }
+});
+
+// GET request to retrieve all sensor data
+app.get('/api/sensordata', async (req, res) => {
+  try {
+    const data = await SensorData.find({});
+    res.status(200).json(data);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving data', error });
   }
 });
 
