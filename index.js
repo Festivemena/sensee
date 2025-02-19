@@ -6,7 +6,7 @@ const app = express();
 const PORT = 3000;
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://festusekuruemu:DZXvqk6TBPp5lbiJ@airrrr.idao5.mongodb.net/?retryWrites=true&w=majority&appName=airrrr');
+mongoose.connect('mongodb+srv://festusekuruemu:73rjiX8vhIH0wdYR@clusweer.lrsqv.mongodb.net/?retryWrites=true&w=majority&appName=Clusweer');
 
 const sensorSchema = new mongoose.Schema({
   temperature: Number,
