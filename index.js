@@ -1,12 +1,19 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import cors from 'cors'; // Import CORS
 
 const app = express();
 const PORT = 3000;
 
+// Enable CORS
+app.use(cors());
+
 // MongoDB connection
-mongoose.connect('mongodb+srv://festusekuruemu:73rjiX8vhIH0wdYR@clusweer.lrsqv.mongodb.net/?retryWrites=true&w=majority&appName=Clusweer');
+mongoose.connect('mongodb+srv://festusekuruemu:73rjiX8vhIH0wdYR@clusweer.lrsqv.mongodb.net/?retryWrites=true&w=majority&appName=Clusweer', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const sensorSchema = new mongoose.Schema({
   temperature: Number,
